@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".patient.auth.PatientRegisterFragmentLast"
+    android:background="@drawable/entry_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/patient_auth_logo"
+                android:src="@drawable/patient2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp" />
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="16.7dp"
+            android:layout_marginRight="62dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Step 5/5"
+                android:paddingLeft="5dp"
+                android:maxLines="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginRight="62dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityQ1_patient"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Security Question 1"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityA1_patient"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Security Answer 1"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityQ2_patient"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Security Question 2"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:layout_marginBottom="10dp"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textSize="15sp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityA2_patient"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Security Answer 2"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityQ3_patient"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Security Question 3"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:layout_marginBottom="10dp"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:textSize="15sp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityA3_patient"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Security Answer 3"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/user_next_last"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="62dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Complete Registration"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_login_corners"
+            />
+    </LinearLayout>
+
+</FrameLayout>

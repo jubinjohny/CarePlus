@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".patient.auth.PatientRegisterFragmentSecond"
+    android:background="@drawable/entry_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+            <ImageView
+                android:id="@+id/patient_auth_logo"
+                android:src="@drawable/patient2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp" />
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="16.7dp"
+            android:layout_marginRight="62dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Step 2/5"
+                android:paddingLeft="5dp"
+                android:maxLines="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="16.7dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_marginRight="62dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dob_user"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Date Of Birth"
+                android:maxLines="1"
+                android:paddingLeft="47dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:src="@drawable/ic_calendar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="16.7dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_marginRight="62dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/phone_user"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:paddingLeft="47dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:src="@drawable/ic_phone"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="16.7dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_marginRight="62dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender_user"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Select Gender (optional)"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:paddingLeft="47dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:src="@drawable/ic_gender"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/user_next_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="62dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Continue"
+            android:textSize="15dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_login_corners"
+            />
+    </LinearLayout>
+
+</FrameLayout>

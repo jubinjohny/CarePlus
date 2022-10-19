@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/entryFragmentSecond">
+    <fragment
+        android:id="@+id/entryFragmentSecond"
+        android:name="com.example.careplus.entry.EntryFragmentSecond"
+        android:label="fragment_entry_second"
+        tools:layout="@layout/fragment_entry_second" >
+        <action
+            android:id="@+id/action_entryFragmentSecond_to_patientLoginActivity"
+            app:destination="@id/patientLoginActivity"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+    <activity
+        android:id="@+id/patientLoginActivity"
+        android:name="com.example.careplus.patient.auth.PatientActivityLogin"
+        android:label="activity_patient_login"
+        tools:layout="@layout/activity_patient_activity_login" />
+</navigation>

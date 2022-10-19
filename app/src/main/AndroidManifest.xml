@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarePlus"
         tools:targetApi="31">
+        <activity
+            android:name=".doctor.home.DoctorHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".clinic.auth.home.ClinicHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".patient.home.PatientHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".doctor.auth.DoctorActivityLogin"
+            android:exported="false" />
+        <activity
+            android:name=".clinic.auth.ClinicActivityLogin"
+            android:exported="false" />
+        <activity
+            android:name=".patient.auth.PatientActivityLogin"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

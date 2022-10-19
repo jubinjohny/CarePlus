@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dashboard_bg"
+    tools:context=".patient.home.PatientDashBoardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:layout_marginRight="62dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_bookings"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/manage_bookings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Manage Bookings"
+                android:paddingLeft="47dp"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:layout_marginRight="62dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_time"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/sview_timeslots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="View Available Time Slots"
+                android:paddingLeft="47dp"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:layout_marginRight="62dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_person_search"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/schedule_doctors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Schedule Doctors"
+                android:paddingLeft="47dp"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:layout_marginRight="62dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_notification"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/view_requests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="New Requests"
+                android:paddingLeft="47dp"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:layout_marginRight="62dp">
+
+            <TextView
+                android:id="@+id/upcoming_bookings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Upcoming Bookings"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:padding="10dp"
+            android:layout_marginRight="62dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_user"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/manage_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Manage Profile"
+                android:paddingLeft="47dp"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

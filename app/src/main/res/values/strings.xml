@@ -1,8 +1,33 @@
 <resources>
-    <string name="app_name">CarePlus</string>
+    <string name="app_name">Care Plus</string>
+    <string name="continue_button">Continue to Login</string>
+    <string name="login_options">How do you want to login?</string>
+    <string name="patient_login_option">Continue as a Patient</string>
+    <string name="clinic_login_option">Continue as a Clinic</string>
+    <string name="doctor_login_option">Continue as a Doctor</string>
+    <string name="title_activity_patient_login">PatientLoginActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
-    <string name="nav_open">Open</string>
-    <string name="nav_close">Close</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_clinic_login">ClinicActivityLogin</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+
+    <string-array name="security_questions">
+        <item>In what city were you born?</item>
+        <item>What is the name of your favourite pet?</item>
+        <item>What is your mother\'s maiden name?</item>
+        <item>What high school did you attend?</item>
+        <item>what was the name of your elementary school?</item>
+        <item>what was the make of your first car?</item>
+        <item>What was your favourite food as a child?</item>
+    </string-array>
 </resources>
