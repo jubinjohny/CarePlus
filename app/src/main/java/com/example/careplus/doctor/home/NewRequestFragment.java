@@ -21,6 +21,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -28,11 +31,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class NewRequestFragment extends Fragment {
     FragmentNewRequestBinding binding;
+    private DatabaseReference mDatabase;
     FirebaseFirestore db;
-    String action;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class NewRequestFragment extends Fragment {
 
     public void setRecyclerView () {
         db = FirebaseFirestore.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         ArrayList<RequestViewCardData> clinicList = new ArrayList<>();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db.collection("Clinics").whereArrayContains("pendingRequests", user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -55,7 +60,7 @@ public class NewRequestFragment extends Fragment {
                         clinicList.add(abc);
                     }
                     NewRequestDoctorAdapter adapter = new NewRequestDoctorAdapter(getContext(), clinicList);
-                   binding.requestView.setAdapter(adapter);
+                    binding.requestView.setAdapter(adapter);
                     binding.requestView.setLayoutManager(new LinearLayoutManager(getContext()));
                 }
             }

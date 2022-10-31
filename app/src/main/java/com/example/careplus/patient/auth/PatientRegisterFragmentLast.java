@@ -159,7 +159,7 @@ public class PatientRegisterFragmentLast extends Fragment {
                             .set(newPatient).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    dataBase.collection("SecurityQuestions").document(DB.getPatientID())
+                                    dataBase.collection("SecurityQuestions").document(DB.getPatientEmail())
                                             .set(secQues).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {

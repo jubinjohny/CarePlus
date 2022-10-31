@@ -96,7 +96,7 @@ public class DoctorRegisterFragmentSecond extends Fragment {
                 }
                 String doctorID = DB.getDoctorID();
                 Boolean updateDoctorData = DB.updateDoctorData(doctorID, specialization, password, "");
-                if(updateDoctorData == true) {
+                if(updateDoctorData == true){
                     Cursor doctor = DB.getAllData();
                     if(doctor.getCount() == 0) {
                         Toast.makeText(getActivity(), "No Entry Exists", Toast.LENGTH_SHORT).show();
@@ -104,8 +104,8 @@ public class DoctorRegisterFragmentSecond extends Fragment {
                     }
                     if(doctor.moveToLast()) {
                         NewDoctor newDoctor = new NewDoctor(doctor.getString(0), doctor.getString(1), doctor.getString(2), doctor.getString(3),
-                                doctor.getString(4), doctor.getString(5), doctor.getString(6));
-                        dataBase.collection("Doctors").document(DB.getDoctorID())
+                                doctor.getString(4), doctor.getString(5), doctor.getString(6), doctor.getString(7));
+                        dataBase.collection("Doctors").document(DB.getDoctorEmail())
                                 .set(newDoctor).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {

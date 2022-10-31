@@ -18,7 +18,7 @@ public class SQLiteDBHelperDoctor extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("CREATE TABLE DoctorDetails(doctorID TEXT, firstname TEXT, lastName TEXT, email TEXT, phone TEXT, " +
-                "specialization TEXT, password TEXT, availability [TEXT])");
+                "specialization TEXT, password TEXT, availability TEXT)");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SQLiteDBHelperDoctor extends SQLiteOpenHelper {
         contentValues.put("phone", phone);
         contentValues.put("specialization", specialization);
         contentValues.put("password", password);
-        contentValues.put("availability", String.valueOf(availability));
+        contentValues.put("availability", availability);
         long result = DB.insert("DoctorDetails", null, contentValues);
         if(result == -1) {
             return false;

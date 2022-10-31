@@ -68,12 +68,12 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
-                android:id="@+id/sview_timeslots"
+                android:id="@+id/view_timeslots"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="View Available Time Slots"
+                android:text="View Schedule"
                 android:paddingLeft="47dp"
                 android:textSize="15sp" />
 
@@ -96,12 +96,12 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
-                android:id="@+id/schedule_doctors"
+                android:id="@+id/add_doctors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Schedule Doctors"
+                android:text="Add New Doctors"
                 android:paddingLeft="47dp"
                 android:textSize="15sp" />
 
@@ -123,12 +123,12 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
-                android:id="@+id/view_requests"
+                android:id="@+id/schedule_docs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="New Requests"
+                android:text="Schedule Doctors"
                 android:paddingLeft="47dp"
                 android:textSize="15sp" />
 

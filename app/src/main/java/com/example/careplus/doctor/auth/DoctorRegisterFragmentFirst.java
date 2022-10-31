@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.example.careplus.databinding.FragmentDoctorRegisterFirstBinding;
 import com.example.careplus.localStorage.SQLiteDBHelperDoctor;
 
 import java.util.Date;
+
 
 public class DoctorRegisterFragmentFirst extends Fragment {
     FragmentDoctorRegisterFirstBinding binding;
@@ -34,7 +36,7 @@ public class DoctorRegisterFragmentFirst extends Fragment {
                 String lastname = binding.doctorLastName.getText().toString();
                 String email = binding.doctorEmail.getText().toString();
                 String phone = binding.doctorPhone.getText().toString();
-
+                Log.d("Test","Here");
                 if(firstname.isEmpty()) {
                     binding.doctorFirstName.setError("First Name is Required");
                     binding.doctorFirstName.requestFocus();
@@ -62,6 +64,7 @@ public class DoctorRegisterFragmentFirst extends Fragment {
                 Date date = new Date();
                 String uniqueDoctorID = "" + date.getTime();
                 Boolean insertDoctorData = DB.insertInitialDoctorData(uniqueDoctorID, firstname, lastname,email,phone,"", "", "");
+                Log.d("Test",insertDoctorData.toString());
                 if(insertDoctorData == true) {
                     DoctorRegisterFragmentSecond nextFrag = new DoctorRegisterFragmentSecond();
                     getActivity().getSupportFragmentManager().beginTransaction()

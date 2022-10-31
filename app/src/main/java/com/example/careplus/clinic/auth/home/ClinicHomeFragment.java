@@ -17,10 +17,10 @@ public class ClinicHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentClinicHomeBinding.inflate(inflater, container, false);
-        binding.scheduleDoctors.setOnClickListener(new View.OnClickListener() {
+        binding.addDoctors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ScheduleDoctorsFragment nextFrag = new ScheduleDoctorsFragment();
+                AddNewDoctorsFragment nextFrag = new AddNewDoctorsFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.clinic_fragment_container, nextFrag, "New Frag")
                         .addToBackStack("first").commit();
@@ -30,6 +30,24 @@ public class ClinicHomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ClinicProfile nextFrag = new ClinicProfile();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clinic_fragment_container, nextFrag, "New Frag")
+                        .addToBackStack("first").commit();
+            }
+        });
+        binding.viewTimeslots.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AvailableTimeSlotFragment nextFrag = new AvailableTimeSlotFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.clinic_fragment_container, nextFrag, "New Frag")
+                        .addToBackStack("first").commit();
+            }
+        });
+        binding.scheduleDocs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ScheduleDoctorsFragment nextFrag = new ScheduleDoctorsFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.clinic_fragment_container, nextFrag, "New Frag")
                         .addToBackStack("first").commit();

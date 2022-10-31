@@ -1,8 +1,6 @@
 package com.example.careplus.adapters;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +22,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NewRequestDoctorAdapter extends RecyclerView.Adapter<NewRequestDoctorAdapter.MyViewHolder> {
     Context context;
     ArrayList<RequestViewCardData> clinicList;
+    ArrayList<DoctorViewCardData> doctorList;
     FirebaseFirestore db;
     public NewRequestDoctorAdapter(Context context, ArrayList<RequestViewCardData> clinicList) {
         this.context = context;
@@ -58,12 +54,41 @@ public class NewRequestDoctorAdapter extends RecyclerView.Adapter<NewRequestDoct
         holder.declineRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             }
         });
         holder.approveRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                db.collection("Clinics").document(clinicList.get(holder.getAbsoluteAdapterPosition()).getID())
+                    .update("pendingRequests", FieldValue.arrayRemove(user.getEmail())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()) {
+                                db.collection("Doctors").whereEqualTo("email", user.getEmail())
+                                    .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task2) {
+                                            if(task2.isSuccessful()) {
+                                                for(QueryDocumentSnapshot doc : task2.getResult()) {
+                                                    db.collection("Doctors").document(doc.getId())
+                                                        .update("requests",  FieldValue.arrayRemove(clinicList.get(holder.getAbsoluteAdapterPosition()).getEmail())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                db.collection("Doctors").document(doc.getId())
+                                                                        .update("approvedList", FieldValue.arrayUnion(clinicList.get(holder.getAbsoluteAdapterPosition()).getEmail()));
+                                                                holder.approveRequest.setText("Approved");
+                                                                db.collection("Clinics").document(clinicList.get(holder.getAbsoluteAdapterPosition()).getID())
+                                                                        .update("approvedList", FieldValue.arrayUnion(doc.getData().get("email").toString()));
+                                                            }
+                                                        });
+                                                }
+                                            }
+                                        }
+                                    });
+                            }
+                        }
+                    });
             }
         });
     }
@@ -74,7 +99,6 @@ public class NewRequestDoctorAdapter extends RecyclerView.Adapter<NewRequestDoct
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-
         ImageView clinicImage;
         TextView clinicName, clinicAddress;
         TextView approveRequest, declineRequest;
@@ -82,7 +106,7 @@ public class NewRequestDoctorAdapter extends RecyclerView.Adapter<NewRequestDoct
             super(itemView);
             clinicImage = itemView.findViewById(R.id.clinic_image);
             clinicName = itemView.findViewById(R.id.clinic_name);
-            clinicAddress = itemView.findViewById(R.id.clinic_address);
+            clinicAddress = itemView.findViewById(R.id.schedule_FN);
             declineRequest = itemView.findViewById(R.id.decline_request);
             approveRequest = itemView.findViewById(R.id.approve_request);
         }

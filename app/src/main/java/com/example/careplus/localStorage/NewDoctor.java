@@ -8,11 +8,12 @@ public class NewDoctor {
     public String phone;
     public String specialization;
     public String password;
+    public String availability;
 
     public NewDoctor() {
     }
 
-    public NewDoctor(String doctorID, String firstName, String lastName, String email, String phone, String specialization, String password) {
+    public NewDoctor(String doctorID, String firstName, String lastName, String email, String phone, String specialization, String password, String availability) {
         this.doctorID = doctorID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,6 +21,15 @@ public class NewDoctor {
         this.phone = phone;
         this.specialization = specialization;
         this.password = password;
+        this.availability = availability;
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
     }
 
     public String getDoctorID() {

@@ -111,7 +111,8 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
                            @Override
                            public void onComplete(@NonNull Task<Void> task) {
                                if(task.isSuccessful()) {
-                                   holder.requestTime.setText("Pending Request");
+                                   doctorList.get(holder.getAbsoluteAdapterPosition()).setRequestPending("Pending Approval");
+                                   holder.requestTime.setText(doctorList.get(holder.getAbsoluteAdapterPosition()).getRequestPending());
                                    db.collection("Clinics").whereEqualTo("email", user.getEmail())
                                            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                @Override

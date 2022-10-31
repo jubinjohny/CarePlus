@@ -59,37 +59,34 @@
 
             <TextView
                 android:id="@+id/request_time"
-                android:layout_width="wrap_content"
+                android:layout_width="150sp"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="10sp"
+                android:layout_marginEnd="5sp"
                 android:layout_marginTop="38dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="5sp"
                 android:background="@drawable/rounded_green_buttons"
                 android:text="Request Time"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/doctor_name" />
 
             <TextView
                 android:id="@+id/check_availability"
-                android:layout_width="wrap_content"
+                android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="10sp"
-                android:layout_marginTop="38dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginBottom="5sp"
                 android:background="@drawable/rounded_green_buttons"
-                android:text="Check Availability"
+                android:paddingHorizontal="10sp"
+                android:text="Availability"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/request_time"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/doctor_image" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

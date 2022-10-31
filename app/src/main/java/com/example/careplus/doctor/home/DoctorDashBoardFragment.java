@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +71,7 @@ public class DoctorDashBoardFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
                     for ( QueryDocumentSnapshot doc : task.getResult())  {
-                        if(doc.getData().get("requests") != null) {
+                        if(doc.getData().get("requests").toString() != "[]") {
                             binding.newRequest.setVisibility(View.VISIBLE);
                         }
                     }

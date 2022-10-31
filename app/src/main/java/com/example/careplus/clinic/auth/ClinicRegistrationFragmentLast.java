@@ -75,7 +75,7 @@ public class ClinicRegistrationFragmentLast extends Fragment {
                                clinic.getInt(9), clinic.getInt(10), clinic.getInt(13),clinic.getInt(14),clinic.getInt(11),clinic.getInt(12),
                                clinic.getInt(15),clinic.getInt(16),clinic.getString(17),clinic.getString(18));
                        Log.d("Clinic", newClinic.toString());
-                       dataBase.collection("Clinics").document(DB.getClinicID())
+                       dataBase.collection("Clinics").document(DB.getClinicEmail())
                                .set(newClinic).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override
                                    public void onSuccess(Void unused) {
