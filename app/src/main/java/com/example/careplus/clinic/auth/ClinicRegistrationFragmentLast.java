@@ -73,9 +73,10 @@ public class ClinicRegistrationFragmentLast extends Fragment {
                        NewClinic newClinic = new NewClinic(clinic.getString(0), clinic.getString(1), clinic.getString(2), clinic.getString(3),
                                clinic.getString(4), clinic.getString(5), clinic.getString(6), clinic.getString(7), clinic.getString(8),
                                clinic.getInt(9), clinic.getInt(10), clinic.getInt(13),clinic.getInt(14),clinic.getInt(11),clinic.getInt(12),
-                               clinic.getInt(15),clinic.getInt(16),clinic.getString(17),clinic.getString(18));
+                               clinic.getInt(15),clinic.getInt(16),clinic.getString(17),clinic.getString(18),clinic.getString(19), clinic.getString(20),
+                               clinic.getString(21), clinic.getString(22));
                        Log.d("Clinic", newClinic.toString());
-                       dataBase.collection("Clinics").document(DB.getClinicEmail())
+                       dataBase.collection("Clinics").document(DB.getClinicID())
                                .set(newClinic).addOnSuccessListener(new OnSuccessListener<Void>() {
                                    @Override
                                    public void onSuccess(Void unused) {
