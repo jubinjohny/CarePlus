@@ -75,7 +75,6 @@ public class AddNewDoctorsFragment extends Fragment {
                                                 if(doc2.getData().get("approvedList").toString().contains(doc.getData().get("email").toString())) {
                                                     break;
                                                 } else {
-                                                    Log.d("Here", doc.getData().get("firstName").toString());
                                                     if(doc.getData().get("requests").toString().contains(user.getEmail())) {
                                                         requestPending = "Pending Approval";
                                                     } else {

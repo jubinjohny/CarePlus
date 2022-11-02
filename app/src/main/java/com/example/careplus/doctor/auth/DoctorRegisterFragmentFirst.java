@@ -19,7 +19,6 @@ import com.example.careplus.localStorage.SQLiteDBHelperDoctor;
 
 import java.util.Date;
 
-
 public class DoctorRegisterFragmentFirst extends Fragment {
     FragmentDoctorRegisterFirstBinding binding;
     SQLiteDBHelperDoctor DB;

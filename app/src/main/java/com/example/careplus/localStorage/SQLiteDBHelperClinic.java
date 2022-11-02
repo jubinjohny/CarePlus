@@ -18,7 +18,7 @@ public class SQLiteDBHelperClinic extends SQLiteOpenHelper {
         DB.execSQL("CREATE TABLE ClinicDetails(clinicID TEXT, name TEXT, type TEXT, email TEXT, phone TEXT, " +
                 "address TEXT, city TEXT, state TEXT, zipcode TEXT, weekdayStartHour NUMBER, weekdayStartMin NUMBER," +
                 "weekdayEndHour NUMBER, weekdayEndMin NUMBER, weekendStartHour NUMBER, weekendStartMin NUMBER, " +
-                "weekendEndHour NUMBER, weekendEndMin NUMBER,website TEXT, password TEXT)");
+                "weekendEndHour NUMBER, weekendEndMin NUMBER,website TEXT, password TEXT, approvedList TEXT, currentSchedule TEXT, nextSchedule TEXT, pendingRequest TEXT)");
     }
 
     @Override
@@ -28,7 +28,8 @@ public class SQLiteDBHelperClinic extends SQLiteOpenHelper {
 
     public Boolean insertInitialClinicData(String clinicID, String name, String type, String email, String phone,String address, String city, String state,
                                            String zipcode,int weekdayStartHour, int weekdayStartMin, int weekdayEndHour,int weekdayEndMin,
-                                           int weekendStartHour, int weekendStartMin,int weekendEndHour,int weekendEndMin, String website, String password) {
+                                           int weekendStartHour, int weekendStartMin,int weekendEndHour,int weekendEndMin, String website, String password,
+                                           String approvedList, String currentSchedule, String nextSchedule, String pendingRequest) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("clinicID", clinicID);
@@ -50,6 +51,10 @@ public class SQLiteDBHelperClinic extends SQLiteOpenHelper {
         contentValues.put("weekendEndMin", weekendEndMin);
         contentValues.put("website", website);
         contentValues.put("password", password);
+        contentValues.put("approvedList", approvedList);
+        contentValues.put("currentSchedule", currentSchedule);
+        contentValues.put("nextSchedule", nextSchedule);
+        contentValues.put("pendingRequest", pendingRequest);
         long result = DB.insert("ClinicDetails", null, contentValues);
         if(result == -1) {
             return false;

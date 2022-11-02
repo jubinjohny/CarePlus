@@ -20,8 +20,12 @@ public class NewClinic {
     public int weekendEndMin;
     public String webSite;
     public String password;
+    public String approvedList;
+    public String currentSchedule;
+    public String nextSchedule;
+    public String pendingRequest;
 
-    public NewClinic(String clinicID, String name, String type, String email, String phone, String address, String city, String state, String zipCode, int weekdayStartHour, int weekdayStartMin, int weekdayEndHour, int weekdayEndMin, int weekendStartHour, int weekendStartMin, int weekendEndHour, int weekendEndMin, String webSite, String password) {
+    public NewClinic(String clinicID, String name, String type, String email, String phone, String address, String city, String state, String zipCode, int weekdayStartHour, int weekdayStartMin, int weekdayEndHour, int weekdayEndMin, int weekendStartHour, int weekendStartMin, int weekendEndHour, int weekendEndMin, String webSite, String password, String approvedList, String currentSchedule, String nextSchedule, String pendingRequest) {
         this.clinicID = clinicID;
         this.name = name;
         this.type = type;
@@ -41,6 +45,10 @@ public class NewClinic {
         this.weekendEndMin = weekendEndMin;
         this.webSite = webSite;
         this.password = password;
+        this.approvedList = approvedList;
+        this.currentSchedule = currentSchedule;
+        this.nextSchedule = nextSchedule;
+        this.pendingRequest = pendingRequest;
     }
 
     public NewClinic() {
@@ -86,20 +94,12 @@ public class NewClinic {
         this.phone = phone;
     }
 
-    public String getWebSite() {
-        return webSite;
+    public String getAddress() {
+        return address;
     }
 
-    public void setWebSite(String webSite) {
-        this.webSite = webSite;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
@@ -108,14 +108,6 @@ public class NewClinic {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getState() {
@@ -196,5 +188,53 @@ public class NewClinic {
 
     public void setWeekendEndMin(int weekendEndMin) {
         this.weekendEndMin = weekendEndMin;
+    }
+
+    public String getWebSite() {
+        return webSite;
+    }
+
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getApprovedList() {
+        return approvedList;
+    }
+
+    public void setApprovedList(String approvedList) {
+        this.approvedList = approvedList;
+    }
+
+    public String getCurrentSchedule() {
+        return currentSchedule;
+    }
+
+    public void setCurrentSchedule(String currentSchedule) {
+        this.currentSchedule = currentSchedule;
+    }
+
+    public String getNextSchedule() {
+        return nextSchedule;
+    }
+
+    public void setNextSchedule(String nextSchedule) {
+        this.nextSchedule = nextSchedule;
+    }
+
+    public String getPendingRequest() {
+        return pendingRequest;
+    }
+
+    public void setPendingRequest(String pendingRequest) {
+        this.pendingRequest = pendingRequest;
     }
 }

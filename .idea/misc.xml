@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/layout/activity_patient_activity_login.xml" value="0.18205128205128204" />
         <entry key="app/src/main/res/layout/activity_patient_home.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/activity_patient_login.xml" value="0.15982776089159068" />
+        <entry key="app/src/main/res/layout/clinics_view_row.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/content_patient_login.xml" value="0.15982776089159068" />
         <entry key="app/src/main/res/layout/drawer_layout.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/drawer_layout_clinic.xml" value="0.2907608695652174" />

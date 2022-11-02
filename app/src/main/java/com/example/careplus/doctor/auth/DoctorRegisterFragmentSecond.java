@@ -105,7 +105,7 @@ public class DoctorRegisterFragmentSecond extends Fragment {
                     if(doctor.moveToLast()) {
                         NewDoctor newDoctor = new NewDoctor(doctor.getString(0), doctor.getString(1), doctor.getString(2), doctor.getString(3),
                                 doctor.getString(4), doctor.getString(5), doctor.getString(6), doctor.getString(7));
-                        dataBase.collection("Doctors").document(DB.getDoctorEmail())
+                        dataBase.collection("Doctors").document(DB.getDoctorID())
                                 .set(newDoctor).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
