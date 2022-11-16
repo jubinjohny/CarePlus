@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dashboard_bg"
-    tools:context=".patient.home.PatientDashBoardFragment">
+    tools:context=".clinic.auth.home.ClinicHomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,9 +47,16 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Manage Bookings"
                 android:paddingLeft="47dp"
+                android:text="Booking Requests"
                 android:textSize="15sp" />
+            <ImageView
+                android:id="@+id/new_request"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="250dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_new_request" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -73,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="View Schedule"
                 android:paddingLeft="47dp"
+                android:text="View Schedule"
                 android:textSize="15sp" />
 
         </RelativeLayout>
@@ -141,16 +149,48 @@
             android:background="@drawable/rounded_corners"
             android:padding="10dp"
             android:layout_marginRight="62dp">
-
-            <TextView
-                android:id="@+id/upcoming_bookings"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Upcoming Bookings"
-                android:textSize="15sp" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/upcoming_bookings"
+                    android:layout_width="254dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Upcoming Bookings"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.461"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/no_booking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="NO UPCOMING APPOINTMENTS"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upcoming_bookings"
+                    app:layout_constraintVertical_bias="0.396"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/upcoming_view"
+                    android:layout_width="251dp"
+                    android:layout_height="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/no_booking"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upcoming_bookings" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </RelativeLayout>
         <RelativeLayout

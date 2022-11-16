@@ -3,25 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/entry_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/clinic_background"
     tools:context=".doctor.auth.DoctorLoginFragment">
 
     <LinearLayout
+        android:id="@+id/clinic_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="463dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp">
-
-            <ImageView
-                android:src="@drawable/nurse"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
-        </FrameLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/clinicAnimation"
+            android:layout_width="282dp"
+            android:layout_height="179dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/doctoranimation"
+            app:lottie_repeatMode="reverse" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

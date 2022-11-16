@@ -15,7 +15,6 @@ public class ClinicActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clinic_login);
         getSupportActionBar().hide();
-
         if(savedInstanceState == null ) {
             getSupportFragmentManager().beginTransaction().replace(R.id.clinic_login_fragment_container,
                     new ClinicLoginFragment()).commit();

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".patient.auth.PatientRegisterFragmentFirst"
-    android:background="@drawable/entry_background">
+    android:background="@drawable/clinic_background">
 
     <LinearLayout
         android:layout_width="match_parent"

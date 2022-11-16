@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -33,7 +35,10 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import java.util.UUID;
 
 public class ScheduleDoctorsFragment extends Fragment implements View.OnClickListener {
     FragmentScheduleDoctorsBinding binding;
@@ -42,13 +47,16 @@ public class ScheduleDoctorsFragment extends Fragment implements View.OnClickLis
     ArrayList<String> doctorsList;
     ArrayList<String> availabilityArray;
     ArrayList<String> docs;
-    String clinicId;
+    FirebaseDatabase realTimeDb;
+    DatabaseReference dbRef;
+    String clinicId, clinicName, clinicEmail;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentScheduleDoctorsBinding.inflate(inflater, container, false);
         user = FirebaseAuth.getInstance().getCurrentUser();
+        clinicEmail = user.getEmail();
         db = FirebaseFirestore.getInstance();
         db.collection("Clinics").whereEqualTo("email", user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -57,9 +65,9 @@ public class ScheduleDoctorsFragment extends Fragment implements View.OnClickLis
                     for(QueryDocumentSnapshot doc : task.getResult()) {
                         doctorsList = (ArrayList<String>) doc.getData().get("approvedList");
                         clinicId = doc.getData().get("clinicID").toString();
+                        clinicName = doc.getData().get("name").toString();
                     }
                 }
-                Log.d("Test :", doctorsList.toString());
                 availabilityArray = new ArrayList<>();
                 docs = new ArrayList<>();
                 for(String doctor : doctorsList) {
@@ -72,7 +80,6 @@ public class ScheduleDoctorsFragment extends Fragment implements View.OnClickLis
                                     String name = doc.getData().get("firstName").toString() + " " + doc.getData().get("lastName").toString();
                                     docs.add(name);
                                 }
-                                Log.d("Avaial", availabilityArray.get(0).toString());
                             }
                         }
                     });
@@ -95,13 +102,14 @@ public class ScheduleDoctorsFragment extends Fragment implements View.OnClickLis
         binding.saturdayFn.setOnClickListener(this);
         binding.sundayFn.setOnClickListener(this);
         binding.sundayAn.setOnClickListener(this);
-        binding.updateAvailability.setOnClickListener(this);
+        binding.confirmSchedule.setOnClickListener(this);
         return binding.getRoot();
     }
 
     @Override
     public void onClick(View view) {
-        db = FirebaseFirestore.getInstance();
+        realTimeDb = FirebaseDatabase.getInstance();
+        dbRef = realTimeDb.getReference("NextClinicSchedules");
         AlertDialog.Builder doctorOptions = new AlertDialog.Builder(getActivity());
         doctorOptions.setTitle("Select Doctor");
         switch(view.getId()) {
@@ -147,37 +155,31 @@ public class ScheduleDoctorsFragment extends Fragment implements View.OnClickLis
             case R.id.sunday_an:
                 getDoctorsList("Sunday AN",R.id.sunday_an, view);
                 break;
-            case R.id.update_availability:
-                DaySchedule mondaySchedule = new DaySchedule(binding.mondayFn.getText().toString() == "FN" ? "" : binding.mondayFn.getText().toString(), binding.mondayAn.getText().toString() == "AN" ? "" : binding.mondayAn.getText().toString());
-                DaySchedule tuesdaySchedule = new DaySchedule(binding.tuesdayFn.getText().toString() == "FN" ? "" : binding.tuesdayFn.getText().toString(), binding.tuesdayAn.getText().toString() == "AN" ? "" :  binding.tuesdayAn.getText().toString());
-                DaySchedule wednesdaySchedule = new DaySchedule(binding.wednesdayFn.getText().toString() == "FN" ? "" : binding.wednesdayFn.getText().toString(), binding.wednesdayAn.getText().toString() == "AN" ? "" : binding.wednesdayAn.getText().toString());
-                DaySchedule thursdaySchedule = new DaySchedule(binding.thursdayFn.getText().toString() == "FN" ? "" : binding.thursdayFn.getText().toString(), binding.thursdayAn.getText().toString() == "AN" ? "": binding.thursdayAn.getText().toString());
-                DaySchedule fridaySchedule = new DaySchedule(binding.fridayFn.getText().toString() == "FN" ? "" : binding.fridayFn.getText().toString(), binding.fridayAn.getText().toString() == "AN" ? "" : binding.fridayAn.getText().toString());
-                DaySchedule saturdaySchedule = new DaySchedule(binding.saturdayFn.getText().toString() == "FN" ? "" : binding.saturdayFn.getText().toString(), binding.saturdayAn.getText().toString() == "AN" ? "" : binding.saturdayAn.getText().toString());
-                DaySchedule sundaySchedule = new DaySchedule(binding.sundayFn.getText().toString() == "FN" ? "" : binding.sundayFn.getText().toString(), binding.sundayAn.getText().toString() == "AN" ? "" : binding.sundayAn.getText().toString());
-                NextSchedule nextSchedule = new NextSchedule(mondaySchedule, tuesdaySchedule, wednesdaySchedule, thursdaySchedule, fridaySchedule, saturdaySchedule, sundaySchedule);
-                db.collection("Clinics").document(clinicId).update("nextSchedule", nextSchedule).addOnCompleteListener(new OnCompleteListener<Void>() {
+            case R.id.confirm_schedule:
+                Map<String, Object> nextSchedule = new HashMap<>();
+                nextSchedule.put("mondayFN", binding.mondayFn.getText().toString());
+                nextSchedule.put("mondayAN", binding.mondayAn.getText().toString());
+                nextSchedule.put("tuesdayFN", binding.tuesdayFn.getText().toString());
+                nextSchedule.put("tuesdayAN", binding.tuesdayAn.getText().toString());
+                nextSchedule.put("wednesdayFN", binding.wednesdayFn.getText().toString());
+                nextSchedule.put("wednesdayAN", binding.wednesdayAn.getText().toString());
+                nextSchedule.put("thursdayFN", binding.thursdayFn.getText().toString());
+                nextSchedule.put("thursdayAN", binding.thursdayAn.getText().toString());
+                nextSchedule.put("fridayFN", binding.fridayFn.getText().toString());
+                nextSchedule.put("fridayAN", binding.fridayAn.getText().toString());
+                nextSchedule.put("saturdayFN", binding.saturdayFn.getText().toString());
+                nextSchedule.put("saturdayAN", binding.saturdayAn.getText().toString());
+                nextSchedule.put("sundayFN", binding.sundayFn.getText().toString());
+                nextSchedule.put("sundayAN", binding.sundayAn.getText().toString());
+                Map<String, Object> fin = new HashMap<>();
+                fin.put(clinicName, nextSchedule);
+                Log.d("Test", fin.toString());
+                dbRef.updateChildren(fin).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()) {
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            binding.mondayFn.setText("FN");
-                            binding.mondayAn.setText("AN");
-                            binding.tuesdayAn.setText("AN");
-                            binding.tuesdayFn.setText("FN");
-                            binding.wednesdayAn.setText("AN");
-                            binding.wednesdayFn.setText("FN");
-                            binding.thursdayFn.setText("FN");
-                            binding.thursdayAn.setText("AN");
-                            binding.fridayFn.setText("FN");
-                            binding.fridayAn.setText("AN");
-                            binding.saturdayFn.setText("FN");
-                            binding.saturdayAn.setText("AN");
-                            binding.sundayFn.setText("FN");
-                            binding.sundayAn.setText("AN");
-                        }else {
-                            Toast.makeText(getActivity(), "Failure", Toast.LENGTH_SHORT).show();
-                        }
+                        binding.mondayFn.setText("FN");
+                        binding.mondayAn.setText("AN");
+
                     }
                 });
                 break;

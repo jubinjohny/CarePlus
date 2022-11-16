@@ -31,6 +31,7 @@ public class PatientLoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentLoginPatientBinding.inflate(inflater, container,false);
+        binding.getRoot().getBackground().setAlpha(90);
         patientAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         binding.userLogin.setOnClickListener(new View.OnClickListener() {

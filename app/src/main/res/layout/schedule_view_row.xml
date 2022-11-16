@@ -24,10 +24,10 @@
             android:layout_margin="5sp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="43dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_calendar_blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/schedule_day"
                 app:layout_constraintHorizontal_bias="0.263"
@@ -36,8 +36,8 @@
 
             <TextView
                 android:id="@+id/schedule_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="108dp"
+                android:layout_height="28dp"
                 android:padding="5sp"
                 android:text="Day"
                 android:textAlignment="center"
@@ -51,13 +51,13 @@
 
             <TextView
                 android:id="@+id/schedule_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="106dp"
+                android:layout_height="19dp"
                 android:layout_marginBottom="16dp"
                 android:text="date"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.17"
@@ -67,14 +67,14 @@
 
             <TextView
                 android:id="@+id/schedule_FN"
-                android:layout_width="wrap_content"
+                android:layout_width="210dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="20sp"
                 android:padding="5sp"
                 android:text="ForeNoon Shift"
                 android:textAlignment="center"
-                android:textSize="10sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toTopOf="@+id/schedule_AN"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -83,15 +83,15 @@
 
             <TextView
                 android:id="@+id/schedule_AN"
-                android:layout_width="wrap_content"
+                android:layout_width="209dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginRight="20sp"
+                android:layout_marginBottom="10dp"
                 android:padding="5sp"
                 android:text="AfterNoon Shift"
                 android:textAlignment="center"
-                android:textSize="10sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

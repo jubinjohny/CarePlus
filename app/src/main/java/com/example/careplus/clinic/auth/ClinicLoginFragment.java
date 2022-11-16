@@ -35,6 +35,7 @@ public class ClinicLoginFragment extends Fragment {
         binding = FragmentClinicLoginBinding.inflate(inflater, container,false);
         clinicAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        binding.getRoot().getBackground().setAlpha(90);
         binding.clinicLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
