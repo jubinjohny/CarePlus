@@ -77,7 +77,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -89,7 +89,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -128,7 +128,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -140,7 +140,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -179,7 +179,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -191,7 +191,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -230,7 +230,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -242,7 +242,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -281,7 +281,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -293,7 +293,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -332,7 +332,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -344,7 +344,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -383,7 +383,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="FN"
+                    android:hint="FN"
                     android:padding="5sp"
                     android:textSize="15sp" />
                 <TextView
@@ -395,7 +395,7 @@
                     android:layout_height="0sp"
                     android:background="@drawable/rounded_corners"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="AN"
+                    android:hint="AN"
                     android:padding="5sp"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -417,7 +417,7 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
-                android:id="@+id/update_availability"
+                android:id="@+id/confirm_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

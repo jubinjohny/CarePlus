@@ -11,24 +11,31 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.careplus.R;
 
-public class EntryFragmentFirst extends Fragment {
+import java.util.Timer;
+import java.util.TimerTask;
 
+public class EntryFragmentFirst extends Fragment {
+    LottieAnimationView loginButton;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_entry_first, container, false);
-        Button continueButton = (Button) root.findViewById(R.id.continueButton);
-        ImageView logo = (ImageView) root.findViewById(R.id.logo);
-        logo.setImageResource(R.drawable.carepluslogo);
-        continueButton.setOnClickListener(new View.OnClickListener() {
+        root.getBackground().setAlpha(90);
+        loginButton = (LottieAnimationView) root.findViewById(R.id.loginButtonMain);
+//        ImageView logo = (ImageView) root.findViewById(R.id.logo);
+//        logo.setImageResource(R.drawable.carepluslogo);
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EntryFragmentSecond entryFragmentSecond = new EntryFragmentSecond();

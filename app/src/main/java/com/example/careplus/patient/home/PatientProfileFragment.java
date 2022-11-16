@@ -140,7 +140,6 @@ public class PatientProfileFragment extends Fragment {
                     updateData.put("email", binding.contactInfo.getText().toString());
                     updateData.put("dob", binding.dob.getText().toString());
                     updateData.put("insuranceProvider", binding.insurance.getText().toString());
-
                     db.collection("Users").document(userId)
                             .update(updateData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

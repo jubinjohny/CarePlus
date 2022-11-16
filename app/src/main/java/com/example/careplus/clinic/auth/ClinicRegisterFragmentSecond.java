@@ -54,7 +54,7 @@ public class ClinicRegisterFragmentSecond extends Fragment {
                 }
 
                 String clinicID = DB.getClinicID();
-                Boolean updateClinicDetails = DB.updateClinicSecond(clinicID ,address, city, state, zipCode);
+                Boolean updateClinicDetails = DB.updateClinicSecond(clinicID ,address+", "+city, city, state, zipCode);
                 if(updateClinicDetails == true) {
                     ClinicRegisterFragmentThird nextFrag = new ClinicRegisterFragmentThird();
                     getActivity().getSupportFragmentManager().beginTransaction()

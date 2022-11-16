@@ -6,13 +6,23 @@ public class ClinicsViewData {
     public String city;
     public String email;
     public int image;
+    public String bookingPending;
 
-    public ClinicsViewData(String ID, String name, String city, String email, int image) {
+    public String getBookingPending() {
+        return bookingPending;
+    }
+
+    public void setBookingPending(String bookingPending) {
+        this.bookingPending = bookingPending;
+    }
+
+    public ClinicsViewData(String ID, String name, String city, String email, int image, String bookingPending) {
         this.ID = ID;
         this.name = name;
         this.city = city;
         this.email = email;
         this.image = image;
+        this.bookingPending = bookingPending;
     }
 
     public String getEmail() {

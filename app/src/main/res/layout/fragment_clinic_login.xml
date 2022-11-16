@@ -3,34 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/entry_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/clinic_background"
+    android:layout_gravity="center"
     tools:context=".clinic.auth.ClinicLoginFragment">
 
     <LinearLayout
+        android:id="@+id/clinic_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="463dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp">
-
-            <ImageView
-                android:src="@drawable/clinic2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="30dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
-        </FrameLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/clinicAnimation"
+            android:layout_width="282dp"
+            android:layout_height="179dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/clinicanimation"
+            app:lottie_repeatMode="reverse"
+            app:lottie_scale="1.2" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
+            android:layout_marginRight="62dp"
             android:background="@drawable/rounded_corners"
-            android:padding="10dp"
-            android:layout_marginRight="62dp">
+            android:padding="10dp">
 
             <EditText
                 android:id="@+id/clinic_email"
@@ -45,9 +51,9 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_user"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_user" />
 
         </RelativeLayout>
 
@@ -56,9 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="16.7dp"
+            android:layout_marginRight="62dp"
             android:background="@drawable/rounded_corners"
-            android:padding="10dp"
-            android:layout_marginRight="62dp">
+            android:padding="10dp">
 
             <EditText
                 android:id="@+id/clinic_password"
@@ -74,9 +80,9 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_password"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_password" />
 
         </RelativeLayout>
 
@@ -95,41 +101,40 @@
             android:text="Login"
             android:textSize="20dp"
             android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_login_corners"
-            />
+            android:background="@drawable/rounded_login_corners"/>
+
         <TextView
             android:id="@+id/forgot_credentials"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="62dp"
             android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_medium"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:textSize="10dp"
             android:text="Forgot Password / Username ?"
-            android:textColor="#1566e0"
-            />
+            android:textColor="#EFF0F3"
+            android:textSize="10dp" />
+
         <TextView
             android:id="@+id/clinic_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="62dp"
+            android:background="@drawable/rounded_register_corners"
             android:fontFamily="@font/poppins_medium"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:background="@drawable/rounded_register_corners"
             android:text="Register/SignUp"
-            android:textColor="#1566e0"
-            />
+            android:textColor="#1566e0" />
     </LinearLayout>
 
 </FrameLayout>
