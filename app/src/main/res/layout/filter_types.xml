@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:text="Choose Filter Options"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingHorizontal="20dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+            <TextView
+                android:id="@+id/filter_by_type"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/rounded_filter_buttons"
+                android:padding="10dp"
+                android:text="Type"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/filter_by_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_filter_buttons"
+                android:padding="10dp"
+                android:text="Insurance Providers"
+                android:layout_marginHorizontal="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

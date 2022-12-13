@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dashboardbgm"
+    tools:context=".patient.home.TransferDataFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#CCC8C8"
+            android:textAlignment="center"
+            android:text="You can request your medical data transfer from one clinic to another clinic."/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginHorizontal="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="viewStart"
+                android:text="Sender Email (Your Email)"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16.7dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_marginHorizontal="50dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sender_email"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="Sender Email"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:paddingLeft="47dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:src="@drawable/ic_email"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="-27dp"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="viewStart"
+                android:text="Who to notify transfer?"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36.7dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="50dp">
+
+            <Spinner
+                android:id="@+id/spinner_to"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="47dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:src="@drawable/ic_email"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="-27dp"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAlignment="viewStart"
+                android:text="Who to transfer your data?"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="36.7dp"
+            android:background="@drawable/rounded_corners"
+            android:layout_gravity="center">
+
+            <Spinner
+                android:id="@+id/spinner_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="47dp"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:src="@drawable/ic_email"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/send_email"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
+            android:background="@drawable/rounded_green_buttons"
+            android:text="Send Email"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="15sp"/>
+    </LinearLayout>
+
+</FrameLayout>
