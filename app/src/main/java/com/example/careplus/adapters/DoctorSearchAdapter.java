@@ -58,51 +58,6 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
         holder.doctorSpecial.setText(doctorList.get(position).getSpecialization());
         holder.doctorImage.setImageResource(doctorList.get(position).getImage());
         holder.requestTime.setText(doctorList.get(position).getRequestPending());
-        holder.checkAvailability.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                db.collection("Doctors").whereEqualTo("email", doctorList.get(holder.getAbsoluteAdapterPosition()).getEmail())
-                    .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if(task.isSuccessful()) {
-                                for(QueryDocumentSnapshot doc : task.getResult()) {
-                                    ArrayList<String> test = new ArrayList<>();
-                                    test.add(doc.getData().get("availability").toString());
-                                    String availability = doc.getData().get("availability").toString();
-                                    LocalDate nextMonday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.MONDAY));
-                                    AlertDialog.Builder doctorSchedule = new AlertDialog.Builder(view.getContext());
-                                    doctorSchedule.setTitle(doctorList.get(holder.getAbsoluteAdapterPosition()).getDoctorName()+"'s Availability (" + nextMonday + ")");
-                                    if(availability == "[]") {
-                                        doctorSchedule.setMessage("No Availability Updated");
-                                    } else {
-                                        doctorSchedule.setMessage(availability);
-                                    }
-                                    doctorSchedule.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                        }
-                                    });
-                                    doctorSchedule.show();
-                                }
-                            } else {
-                                AlertDialog.Builder doctorSchedule = new AlertDialog.Builder(view.getContext());
-                                LocalDate nextMonday = LocalDate.now().with(TemporalAdjusters.next(DayOfWeek.MONDAY));
-                                doctorSchedule.setTitle(doctorList.get(holder.getAbsoluteAdapterPosition()).getDoctorName()+"'s Availability (" + nextMonday + ")");
-                                doctorSchedule.setMessage("No Availability Found");
-                                doctorSchedule.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                                doctorSchedule.show();
-                            }
-                        }
-                    });
-            }
-        });
         holder.requestTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,13 +96,12 @@ public class DoctorSearchAdapter extends RecyclerView.Adapter<DoctorSearchAdapte
 
         ImageView doctorImage;
         TextView doctorName, doctorSpecial;
-        TextView checkAvailability, requestTime;
+        TextView requestTime;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             doctorImage = itemView.findViewById(R.id.doctor_image);
             doctorName = itemView.findViewById(R.id.doctor_name);
             doctorSpecial = itemView.findViewById(R.id.doctor_specialization);
-            checkAvailability = itemView.findViewById(R.id.check_availability);
             requestTime = itemView.findViewById(R.id.request_time);
         }
     }

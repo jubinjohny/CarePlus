@@ -1,5 +1,6 @@
 package com.example.careplus.doctor.home;
 
+import android.net.CaptivePortal;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.careplus.R;
+import com.example.careplus.adapters.AppointmentsViewAdapter;
 import com.example.careplus.adapters.DoctorSearchAdapter;
 import com.example.careplus.adapters.NewRequestDoctorAdapter;
 import com.example.careplus.databinding.FragmentNewRequestBinding;
@@ -54,14 +56,20 @@ public class NewRequestFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
+                    clinicList.clear();
                     for (QueryDocumentSnapshot doc : task.getResult()) {
                         RequestViewCardData abc = new RequestViewCardData(doc.getData().get("name").toString(),
                                 doc.getData().get("address").toString()+", "+doc.getData().get("city").toString()+", "+ doc.getData().get("zipCode"), doc.getData().get("email").toString(), doc.getId(), R.drawable.clinic);
                         clinicList.add(abc);
                     }
-                    NewRequestDoctorAdapter adapter = new NewRequestDoctorAdapter(getContext(), clinicList);
-                    binding.requestView.setAdapter(adapter);
-                    binding.requestView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    if(clinicList.size() > 0) {
+                        binding.noBooking.setVisibility(View.GONE);
+                        NewRequestDoctorAdapter adapter = new NewRequestDoctorAdapter(getContext(), clinicList);
+                        binding.requestView.setAdapter(adapter);
+                        binding.requestView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    } else {
+                        binding.noBooking.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });

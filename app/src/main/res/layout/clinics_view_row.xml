@@ -19,78 +19,64 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners"
-            android:layout_margin="5sp">
+            android:layout_height="72dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/rounded_corners">
 
             <ImageView
                 android:id="@+id/clinic_image"
-                android:layout_width="108dp"
-                android:layout_height="107dp"
+                android:layout_width="102dp"
+                android:layout_height="58dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.017"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.333"
+                app:layout_constraintVertical_bias="0.093"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/clinic_name"
                 android:layout_width="250dp"
-                android:padding="5sp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="28dp"
+                android:padding="5sp"
                 android:text="Clinic Name"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toTopOf="@+id/book_appointment"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.342"
                 app:layout_constraintStart_toEndOf="@+id/clinic_image"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.015" />
 
             <TextView
                 android:id="@+id/clinic_address"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:padding="5sp"
+                android:layout_width="104dp"
+                android:layout_height="20dp"
                 android:text="Address"
-                app:layout_constraintBottom_toTopOf="@+id/check_doctors"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
                 app:layout_constraintStart_toEndOf="@+id/clinic_image"
-                app:layout_constraintTop_toBottomOf="@+id/clinic_name" />
+                app:layout_constraintTop_toBottomOf="@+id/clinic_name"
+                app:layout_constraintVertical_bias="0.159" />
 
             <TextView
                 android:id="@+id/book_appointment"
-                android:layout_width="150sp"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10sp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5sp"
+                android:layout_width="150dp"
+                android:layout_height="31dp"
                 android:background="@drawable/rounded_green_buttons"
+                android:paddingHorizontal="10sp"
                 android:text="Book Appointment"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/clinic_name" />
-
-            <TextView
-                android:id="@+id/check_doctors"
-                android:layout_width="130sp"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10sp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5sp"
-                android:background="@drawable/rounded_green_buttons"
-                android:text="Check Doctors"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/approve_request"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/clinic_image" />
+                app:layout_constraintHorizontal_bias="0.971"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.804" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

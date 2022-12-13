@@ -73,4 +73,16 @@ public class PatientHomeActivity extends AppCompatActivity implements Navigation
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            this.finishAffinity();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+    }
 }

@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.careplus.R;
+import com.example.careplus.doctor.home.NewRequestFragment;
 import com.example.careplus.localStorage.DoctorViewCardData;
+import com.example.careplus.localStorage.NewAppointmentRequest;
 import com.example.careplus.localStorage.RequestViewCardData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,7 +56,39 @@ public class NewRequestDoctorAdapter extends RecyclerView.Adapter<NewRequestDoct
         holder.declineRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                db.collection("Clinics").document(clinicList.get(holder.getAbsoluteAdapterPosition()).getID())
+                    .update("pendingRequests", FieldValue.arrayRemove(user.getEmail())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()) {
+                                db.collection("Doctors").whereEqualTo("email", user.getEmail()).get()
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task2) {
+                                            if(task2.isSuccessful()) {
+                                                for(QueryDocumentSnapshot doc : task2.getResult()) {
+                                                    db.collection("Doctors").document(doc.getId())
+                                                        .update("requests",  FieldValue.arrayRemove(clinicList.get(holder.getAbsoluteAdapterPosition()).getEmail())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                if(task.isSuccessful()) {
+                                                                    holder.declineRequest.setText("Declined");
+                                                                    holder.declineRequest.setBackgroundResource(R.drawable.rounded_delete_account);
+                                                                    if(clinicList.size() > 0) {
+                                                                        clinicList.remove(holder.getAbsoluteAdapterPosition());
+                                                                    }
+                                                                    NewRequestDoctorAdapter adapter = new NewRequestDoctorAdapter(view.getContext(),clinicList);
+                                                                    adapter.notifyItemRemoved(holder.getAbsoluteAdapterPosition());
+                                                                }
+                                                            }
+                                                        });
+                                                }
+                                            }
+                                        }
+                                    });
+                            }
+                        }
+                    });
             }
         });
         holder.approveRequest.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +113,15 @@ public class NewRequestDoctorAdapter extends RecyclerView.Adapter<NewRequestDoct
                                                                         .update("approvedList", FieldValue.arrayUnion(clinicList.get(holder.getAbsoluteAdapterPosition()).getEmail()));
                                                                 holder.approveRequest.setText("Approved");
                                                                 db.collection("Clinics").document(clinicList.get(holder.getAbsoluteAdapterPosition()).getID())
-                                                                        .update("approvedList", FieldValue.arrayUnion(doc.getData().get("email").toString()));
+                                                                        .update("approvedList", FieldValue.arrayUnion(doc.getData().get("email").toString()))
+                                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                            @Override
+                                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                                clinicList.remove(holder.getAbsoluteAdapterPosition());
+                                                                                NewRequestDoctorAdapter adapter = new NewRequestDoctorAdapter(view.getContext(),clinicList);
+                                                                                adapter.notifyItemRemoved(holder.getAbsoluteAdapterPosition());
+                                                                            }
+                                                                        });
                                                             }
                                                         });
                                                 }

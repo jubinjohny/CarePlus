@@ -3,27 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/entry_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/clinic_background"
     tools:context=".doctor.auth.DoctorLoginFragment">
 
     <LinearLayout
+        android:id="@+id/clinic_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp">
-
-            <ImageView
-                android:src="@drawable/nurse"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
-        </FrameLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/clinicAnimation"
+            android:layout_width="282dp"
+            android:layout_height="179dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/doctoranimation"
+            app:lottie_repeatMode="reverse" />
 
         <RelativeLayout
+            android:id="@+id/username_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -38,6 +42,7 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="username"
+                android:singleLine="true"
                 android:paddingLeft="47dp"
                 android:textSize="15sp" />
 
@@ -51,6 +56,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/password_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -67,6 +73,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:inputType="textPassword"
                 android:hint="password"
+                android:singleLine="true"
                 android:paddingLeft="47dp"
                 android:textSize="15sp" />
 
@@ -76,6 +83,27 @@
                 android:src="@drawable/ic_password"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp" />
+            <ImageView
+                android:id="@+id/show_password"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignStart="@+id/doctor_password"
+                android:layout_alignEnd="@+id/doctor_password"
+                android:layout_marginStart="243dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="0dp"
+                android:src="@drawable/ic_eye_noshow" />
+            <ImageView
+                android:id="@+id/hide_password"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignStart="@+id/doctor_password"
+                android:layout_alignEnd="@+id/doctor_password"
+                android:layout_marginStart="243dp"
+                android:layout_marginLeft="10dp"
+                android:visibility="invisible"
+                android:layout_marginEnd="0dp"
+                android:src="@drawable/ic_eye_show" />
 
 
         </RelativeLayout>
@@ -130,49 +158,6 @@
             android:text="Register/SignUp"
             android:textColor="#1566e0"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginLeft="62dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="62dp"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_gravity="center"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="OR"
-            android:textColor="#1566e0"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_register_corners"
-            android:layout_marginRight="52dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="62dp"
-                android:fontFamily="@font/poppins_medium"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:text="Continue With Google"
-                android:textColor="#1566e0"
-                />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/gmail"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp" />
-        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".patient.auth.PatientRegisterFragmentFourth"
-    android:background="@drawable/entry_background">
+    android:background="@drawable/clinic_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="120dp" />
         </FrameLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -91,6 +91,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Password"
                 android:maxLines="1"
+                android:singleLine="true"
                 android:paddingLeft="47dp"
                 android:inputType="textPassword"
                 android:paddingTop="10dp"
@@ -103,7 +104,29 @@
                 android:layout_height="24dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"/>
-
+            <ImageView
+                android:id="@+id/show_password"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignStart="@+id/password_patient"
+                android:layout_alignEnd="@+id/password_patient"
+                android:layout_marginStart="238dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_eye_noshow" />
+            <ImageView
+                android:id="@+id/hide_password"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignStart="@+id/password_patient"
+                android:layout_alignEnd="@+id/password_patient"
+                android:layout_marginStart="238dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_eye_show" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -123,6 +146,7 @@
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:singleLine="true"
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
@@ -134,6 +158,31 @@
                 android:layout_height="24dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:id="@+id/show_password_confirm"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignStart="@+id/password_patient_confirm"
+                android:layout_alignEnd="@+id/password_patient_confirm"
+                android:layout_marginStart="238dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_eye_noshow" />
+
+            <ImageView
+                android:id="@+id/hide_password_confirm"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignStart="@+id/password_patient_confirm"
+                android:layout_alignEnd="@+id/password_patient_confirm"
+                android:layout_marginStart="238dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_eye_show"
+                android:visibility="invisible" />
 
         </RelativeLayout>
         <TextView

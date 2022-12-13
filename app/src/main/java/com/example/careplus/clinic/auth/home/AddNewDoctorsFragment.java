@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -34,8 +36,10 @@ public class AddNewDoctorsFragment extends Fragment {
     FragmentAddNewDoctorsBinding binding;
     FirebaseFirestore db;
     String requestPending;
-    String clinicType;
+    String clinicType, clinicName;
     FirebaseUser user;
+    FirebaseDatabase realTimeDB;
+    DatabaseReference dbRef;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,15 +53,18 @@ public class AddNewDoctorsFragment extends Fragment {
                     for(QueryDocumentSnapshot doc : task.getResult()) {
                         clinicType = doc.getData().get("type").toString();
                         binding.doctorViewTitle.setText("" + clinicType.toUpperCase() + " DOCTORS LIST");
+                        clinicName = doc.getData().get("name").toString();
+                        setRecyclerView();
                     }
                 }
             }
         });
-        this.setRecyclerView();
         return binding.getRoot();
     }
 
     public void setRecyclerView () {
+        realTimeDB = FirebaseDatabase.getInstance();
+        dbRef = realTimeDB.getReference("CommonAttributes");
         db = FirebaseFirestore.getInstance();
         db.collection("Doctors").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -65,7 +72,8 @@ public class AddNewDoctorsFragment extends Fragment {
                 ArrayList<DoctorViewCardData> doctorList = new ArrayList<>();
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot doc : task.getResult()) {
-                        if(clinicType.contentEquals( doc.getData().get("specialization").toString())) {
+                        String speciality = doc.getData().get("specialization").toString();
+                        if(clinicType.contentEquals(speciality)) {
                             db.collection("Clinics").whereEqualTo("email", user.getEmail()).get()
                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
@@ -86,12 +94,18 @@ public class AddNewDoctorsFragment extends Fragment {
                                                 }
                                             }
                                         }
-                                        DoctorSearchAdapter adapter = new DoctorSearchAdapter(getContext(), doctorList);
-                                        binding.doctorsView.setAdapter(adapter);
-                                        binding.doctorsView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                        if(doctorList.size() > 0) {
+                                            binding.noBooking.setVisibility(View.GONE);
+                                            DoctorSearchAdapter adapter = new DoctorSearchAdapter(getContext(), doctorList);
+                                            binding.doctorsView.setAdapter(adapter);
+                                            binding.doctorsView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                        } else {
+                                            binding.noBooking.setVisibility(View.VISIBLE);
+                                        }
                                     }
                                 });
                             }
+
                         }
                     }
                 }

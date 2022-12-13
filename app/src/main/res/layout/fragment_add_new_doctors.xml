@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dashboard_bg"
+    android:background="@drawable/dashboardbgm"
     tools:context=".clinic.auth.home.AddNewDoctorsFragment">
 
     <TextView
@@ -13,13 +13,47 @@
         android:layout_height="42dp"
         android:textSize="20sp"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="DOCTORS LIST"
         app:layout_constraintBottom_toTopOf="@+id/doctors_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/no_booking"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        android:gravity="center">
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="385dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/no_data" />
+        <TextView
+            android:layout_width="295dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="2sp"
+            android:gravity="center"
+            android:text="No New Doctors Avaialble "
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/bookings_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/doctors_view"

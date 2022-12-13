@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,25 +106,25 @@ public class DoctorRegisterFragmentSecond extends Fragment {
                     }
                     if(doctor.moveToLast()) {
                         NewDoctor newDoctor = new NewDoctor(doctor.getString(0), doctor.getString(1), doctor.getString(2), doctor.getString(3),
-                                doctor.getString(4), doctor.getString(5), doctor.getString(6), doctor.getString(7));
+                                doctor.getString(4), doctor.getString(5), doctor.getString(6), doctor.getString(7), "", "");
                         dataBase.collection("Doctors").document(DB.getDoctorID())
                                 .set(newDoctor).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         doctorAuth.createUserWithEmailAndPassword(DB.getDoctorEmail(), DB.getDoctorPassword())
-                                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                                        if (task.isSuccessful()) {
-                                                            Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
-                                                        } else {
-                                                            Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
-                                                            return;
-                                                        }
+                                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
+                                                        Intent i = new Intent(getActivity(), DoctorHomeActivity.class);
+                                                        startActivity(i);
+                                                    } else {
+                                                        Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
+                                                        return;
                                                     }
-                                                });
-                                        Intent i = new Intent(getActivity(), DoctorHomeActivity.class);
-                                        startActivity(i);
+                                                }
+                                            });
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -132,6 +134,39 @@ public class DoctorRegisterFragmentSecond extends Fragment {
                                 });
                     }
                 }
+            }
+        });
+
+        binding.showPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.GONE);
+                binding.hidePassword.setVisibility(View.VISIBLE);
+                binding.doctorPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.VISIBLE);
+                binding.hidePassword.setVisibility(View.GONE);
+                binding.doctorPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
+        binding.showPasswordConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPasswordConfirm.setVisibility(View.GONE);
+                binding.hidePasswordConfirm.setVisibility(View.VISIBLE);
+                binding.doctorPasswordConfirm.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePasswordConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPasswordConfirm.setVisibility(View.VISIBLE);
+                binding.hidePasswordConfirm.setVisibility(View.GONE);
+                binding.doctorPasswordConfirm.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
         return binding.getRoot();

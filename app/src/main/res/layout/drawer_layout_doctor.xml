@@ -34,6 +34,6 @@
         android:layout_height="wrap_content"
         android:textSize="10dp"
         android:paddingTop="3dp"
-        android:text="info@careplus.com/doctor"
+        android:text="info@careplus.live/doctor"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 </LinearLayout>

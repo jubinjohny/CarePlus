@@ -3,30 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/mainbgm"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".entry.EntryFragmentFirst">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        tools:ignore="UselessParent">
+
 
         <ImageView
-            android:id="@+id/logo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            />
-        <Button
-            android:id="@+id/continueButton"
-            android:background="@drawable/rounded_login_corners"
-            android:layout_width="wrap_content"
+            android:id="@+id/patient_auth_logo"
+            android:src="@drawable/carepluslogo"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="100dp"
-            android:layout_height="wrap_content"
+            tools:ignore="ContentDescription" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loginButtonMain"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
             android:layout_gravity="center"
-            android:text="@string/continue_button"/>
+            app:lottie_rawRes="@raw/continuebutton" />
+
 
     </LinearLayout>
 

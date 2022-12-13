@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dashboard_bg"
+    android:background="@drawable/dashboardbgm"
     tools:context=".patient.home.PatientDashBoardFragment">
 
     <LinearLayout
@@ -15,6 +15,7 @@
             android:layout_height="75dp">
 
             <TextView
+                android:id="@+id/welcome_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Welcome"
@@ -22,9 +23,10 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
         </FrameLayout>
         <RelativeLayout
+            android:id="@+id/search_clinics_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -52,6 +54,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/manage_bookings_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -80,6 +83,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/transfer_data_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -96,18 +100,19 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
-                android:id="@+id/search_doctors"
+                android:id="@+id/transfer_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Search Doctors"
                 android:paddingLeft="47dp"
+                android:text="Transfer Data to Clinic"
                 android:textSize="15sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/upcoming_bookings_layout"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginLeft="62dp"
@@ -120,14 +125,39 @@
                 android:id="@+id/upcoming_bookings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Upcoming Bookings"
+                android:textAlignment="center"
                 android:textSize="15sp" />
+            <TextView
+                android:id="@+id/no_booking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="NO UPCOMING APPOINTMENTS"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:layout_marginTop="90dp"
+                android:visibility="invisible"
+                />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upcoming_view"
+                android:layout_width="277dp"
+                android:layout_height="143dp"
+                android:layout_below="@+id/upcoming_bookings"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp" />
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/update_profile_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"

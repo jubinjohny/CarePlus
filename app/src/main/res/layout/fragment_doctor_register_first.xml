@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".doctor.auth.DoctorRegisterFragmentFirst"
-    android:background="@drawable/entry_background">
+    android:background="@drawable/clinic_background">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/doctor"
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="80dp"
+                android:src="@drawable/doctor" />
         </FrameLayout>
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,26 +40,27 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Step 1/2"
-                android:paddingLeft="5dp"
                 android:maxLines="1"
+                android:paddingLeft="5dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textSize="20sp"/>
+                android:text="Step 1/2"
+                android:textSize="20sp" />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="16.7dp"
-            android:background="@drawable/rounded_corners"
-            android:layout_marginRight="62dp">
+            android:layout_marginRight="62dp"
+            android:background="@drawable/rounded_corners">
 
             <EditText
+                android:id="@+id/doctor_first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/doctor_first_name"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="First Name"
@@ -61,14 +68,15 @@
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textSize="15sp"/>
+                android:singleLine="true"
+                android:textSize="15sp" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_name"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_name" />
 
         </RelativeLayout>
 
@@ -77,13 +85,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="16.7dp"
-            android:background="@drawable/rounded_corners"
-            android:layout_marginRight="62dp">
+            android:layout_marginRight="62dp"
+            android:background="@drawable/rounded_corners">
 
             <EditText
+                android:id="@+id/doctor_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/doctor_last_name"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Last Name"
@@ -91,14 +99,15 @@
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textSize="15sp"/>
+                android:singleLine="true"
+                android:textSize="15sp" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_name"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_name" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -106,13 +115,13 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="16.7dp"
-            android:background="@drawable/rounded_corners"
-            android:layout_marginRight="62dp">
+            android:layout_marginRight="62dp"
+            android:background="@drawable/rounded_corners">
 
             <EditText
+                android:id="@+id/doctor_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/doctor_email"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Email"
@@ -120,14 +129,15 @@
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textSize="15sp"/>
+                android:singleLine="true"
+                android:textSize="15sp" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_email"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_email" />
 
         </RelativeLayout>
 
@@ -135,14 +145,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
-            android:background="@drawable/rounded_corners"
             android:layout_marginTop="16.7dp"
-            android:layout_marginRight="62dp">
+            android:layout_marginRight="62dp"
+            android:background="@drawable/rounded_corners">
 
             <EditText
+                android:id="@+id/doctor_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/doctor_phone"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Phone Number"
@@ -150,34 +160,35 @@
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textSize="15sp"/>
+                android:singleLine="true"
+                android:textSize="15sp" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_phone"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_phone" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/continue_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="62dp"
+            android:background="@drawable/rounded_login_corners"
             android:fontFamily="@font/poppins_medium"
-            android:layout_gravity="center"
+            android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Continue"
-            android:textSize="15dp"
             android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_login_corners"
+            android:textSize="15dp"
 
             />
     </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

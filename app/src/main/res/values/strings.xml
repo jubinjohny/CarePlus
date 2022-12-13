@@ -30,4 +30,9 @@
         <item>what was the make of your first car?</item>
         <item>What was your favourite food as a child?</item>
     </string-array>
+
+    <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

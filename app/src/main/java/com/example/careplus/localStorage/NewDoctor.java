@@ -9,11 +9,13 @@ public class NewDoctor {
     public String specialization;
     public String password;
     public String availability;
+    public String requests;
+    public String approvedList;
 
     public NewDoctor() {
     }
 
-    public NewDoctor(String doctorID, String firstName, String lastName, String email, String phone, String specialization, String password, String availability) {
+    public NewDoctor(String doctorID, String firstName, String lastName, String email, String phone, String specialization, String password, String availability, String requests, String approvedList) {
         this.doctorID = doctorID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -22,6 +24,8 @@ public class NewDoctor {
         this.specialization = specialization;
         this.password = password;
         this.availability = availability;
+        this.requests = requests;
+        this.approvedList = approvedList;
     }
 
     public String getAvailability() {

@@ -47,7 +47,6 @@ public class ClinicRegisterFragmentThird extends Fragment {
                                 public void onTimeSet(TimePicker timer, int hourOfDay, int minute) {
                                     weekdayStartHour = hourOfDay;
                                     weekdayStartMin = minute;
-                                    Log.d("Weekday Start Time :", "" + weekdayStartHour + weekdayStartMin );
                                     if(minute < 10) {
                                         if (hourOfDay < 10) {
                                             binding.weekdaysStartTime.setText("0"+hourOfDay + ":" + "0"+minute);

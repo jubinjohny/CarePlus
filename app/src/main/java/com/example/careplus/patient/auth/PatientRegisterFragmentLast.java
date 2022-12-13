@@ -155,37 +155,36 @@ public class PatientRegisterFragmentLast extends Fragment {
                             patient.getString(4), patient.getString(5), patient.getString(6), patient.getString(7), patient.getString(8),
                             patient.getString(9), patient.getString(10), patient.getString(11), patient.getString(12));
                     SecurityQuestions secQues = new SecurityQuestions(Q1, Q2, Q3, A1, A2, A3);
-                    dataBase.collection("Users").document(DB.getPatientID())
+                    dataBase.collection("Patients").document(DB.getPatientID())
                             .set(newPatient).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     dataBase.collection("SecurityQuestions").document(DB.getPatientEmail())
-                                            .set(secQues).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void unused) {
-                                                    Toast.makeText(getActivity(), "Data added", Toast.LENGTH_SHORT).show();
-                                                    patientAuth.createUserWithEmailAndPassword(DB.getPatientEmail(), DB.getPatientPassword())
-                                                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                                                @Override
-                                                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                                                    if (task.isSuccessful()) {
-                                                                        Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
-                                                                    } else {
-                                                                        Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
-                                                                        return;
-                                                                    }
+                                        .set(secQues).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(getActivity(), "Data added", Toast.LENGTH_SHORT).show();
+                                                patientAuth.createUserWithEmailAndPassword(DB.getPatientEmail(), DB.getPatientPassword())
+                                                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
+                                                                    Intent i = new Intent(getActivity(), PatientHomeActivity.class);
+                                                                    startActivity(i);
+                                                                } else {
+                                                                    Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
+                                                                    return;
                                                                 }
-                                                            });
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(getActivity(), "Data addition failed", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
-//                                    Boolean deleteUserFromLocal = DB.deletePatientData(patientID);
-                                    Intent i = new Intent(getActivity(), PatientHomeActivity.class);
-                                    startActivity(i);
+                                                            }
+                                                        });
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(getActivity(), "Data addition failed", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

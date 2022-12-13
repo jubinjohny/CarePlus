@@ -6,9 +6,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.careplus.MainActivity;
@@ -17,6 +19,8 @@ import com.example.careplus.patient.home.PatientDashBoardFragment;
 import com.example.careplus.patient.home.PatientProfileFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
 
 public class ClinicHomeActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
@@ -71,5 +75,18 @@ public class ClinicHomeActivity extends AppCompatActivity  implements Navigation
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            this.finishAffinity();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+
     }
 }

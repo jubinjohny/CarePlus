@@ -93,9 +93,9 @@ public class ClinicRegisterFragmentFirst extends Fragment {
                 Date date = new Date();
                 String uniqueClinicID = "" + date.getTime();
                 Boolean initializeClinicRegData = DB.insertInitialClinicData(uniqueClinicID,name,type,email,phone,
-                        "empty","empty", "empty", "empty", 1000, 1000, 1000, 1000, 1000,
-                        1000, 1000, 1000, "empty", "empty", "empty", "empty",
-                        "empty", "empty");
+                        "","", "", "", 1000, 1000, 1000, 1000, 1000,
+                        1000, 1000, 1000, "", "", "", "",
+                        "", "");
                 if(initializeClinicRegData == true) {
                     ClinicRegisterFragmentSecond nextFrag = new ClinicRegisterFragmentSecond();
                     getActivity().getSupportFragmentManager().beginTransaction()

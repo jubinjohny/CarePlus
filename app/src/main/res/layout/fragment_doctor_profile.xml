@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dashboard_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/dashboardbgm"
     tools:context=".patient.home.PatientProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,19 +21,22 @@
             android:layout_width="match_parent"
             android:layout_height="250dp">
 
-            <ImageView
-                android:id="@+id/patient_auth_logo"
-                android:src="@drawable/nurse"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/doctorProfileAnimation"
+                android:layout_width="282dp"
+                android:layout_height="179dp"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/doctor_profile_image" />
+
         </FrameLayout>
         <RelativeLayout
+            android:id="@+id/first_name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corners"
             android:padding="10dp"
             android:layout_marginRight="62dp">
@@ -44,14 +53,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="First Name"
                 android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingLeft="47dp"
+                android:text="First Name"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/last_name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -72,14 +82,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Last Name"
                 android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingLeft="47dp"
+                android:text="Last Name"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/clinics_engaged_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -100,14 +111,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:focusable="false"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Clinics Engaged"
-                android:enabled="false"
                 android:paddingLeft="47dp"
+                android:text="Clinics Engaged"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/contact_info_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -128,14 +140,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Contact Information"
                 android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingLeft="47dp"
+                android:text="Contact Information"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/update_profile_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -158,11 +171,13 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:text="Update Profile"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/logout_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -191,6 +206,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/delete_account_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -213,11 +229,11 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="center"
-                android:textColor="@color/red"
+                android:textColor="@color/ic_launcher_background"
                 android:text="Delete Account"
                 android:textSize="15sp" />
 
         </RelativeLayout>
     </LinearLayout>
-
+    </ScrollView>
 </FrameLayout>

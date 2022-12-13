@@ -14,7 +14,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/clinic2"
+        android:src="@drawable/clinic"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -34,6 +34,6 @@
         android:layout_height="wrap_content"
         android:textSize="10dp"
         android:paddingTop="3dp"
-        android:text="info@careplus.com/clinic"
+        android:text="info@careplus.live/clinic"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".patient.auth.PatientRegisterFragmentLast"
-    android:background="@drawable/entry_background">
+    android:background="@drawable/clinic_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="120dp" />
         </FrameLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -61,8 +61,10 @@
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:focusable="false"
-                android:maxLines="1"
-                android:padding="10dp"
+                android:maxLines="2"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:textSize="15sp"/>
             <EditText
@@ -73,7 +75,10 @@
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Security Answer 1"
                 android:maxLines="1"
-                android:padding="10dp"
+                android:singleLine="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:textSize="15sp"/>
             <TextView
@@ -87,8 +92,10 @@
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:layout_marginBottom="10dp"
-                android:maxLines="1"
-                android:padding="10dp"
+                android:maxLines="2"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
                 android:textSize="15sp"/>
             <EditText
                 android:layout_width="match_parent"
@@ -98,7 +105,10 @@
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Security Answer 2"
                 android:maxLines="1"
-                android:padding="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
                 android:layout_marginBottom="10dp"
                 android:textSize="15sp"/>
             <TextView
@@ -112,8 +122,10 @@
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:layout_marginBottom="10dp"
-                android:maxLines="1"
-                android:padding="10dp"
+                android:maxLines="2"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
                 android:textSize="15sp"/>
             <EditText
                 android:layout_width="match_parent"
@@ -123,7 +135,10 @@
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Security Answer 3"
                 android:maxLines="1"
-                android:padding="10dp"
+                android:singleLine="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
                 android:layout_marginBottom="10dp"
                 android:textSize="15sp"/>
 

@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable-v24/rounded_green_buttons.xml" value="0.1585" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.1223021582733813" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.232" />
+        <entry key="app/src/main/res/drawable-v24/rounded_filter_buttons.xml" value="0.128" />
+        <entry key="app/src/main/res/drawable-v24/rounded_green_buttons.xml" value="0.165" />
         <entry key="app/src/main/res/drawable-v24/rounded_login_corners.xml" value="0.262" />
         <entry key="app/src/main/res/drawable-v24/rounded_register_corners.xml" value="0.262" />
         <entry key="app/src/main/res/drawable-v24/rounded_register_pressable.xml" value="0.1" />
@@ -11,12 +14,19 @@
         <entry key="app/src/main/res/drawable/colored_border.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/dashboard_bg.xml" value="0.183" />
         <entry key="app/src/main/res/drawable/entry_background.xml" value="0.155" />
+        <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_calendar_blue.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.19" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.232" />
         <entry key="app/src/main/res/drawable/ic_new_request.xml" value="0.1385" />
+        <entry key="app/src/main/res/drawable/ic_time.xml" value="0.206" />
+        <entry key="app/src/main/res/drawable/ic_time_blue.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/main_background.xml" value="0.155" />
         <entry key="app/src/main/res/drawable/patient_login_bg.xml" value="0.262" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/rounded_logout_corners.xml" value="0.183" />
+        <entry key="app/src/main/res/drawable/rounded_logout_corners.xml" value="0.162" />
+        <entry key="app/src/main/res/font/careplus_font.xml" value="0.2453125" />
         <entry key="app/src/main/res/layout/activity_clinic_home.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/activity_clinic_login.xml" value="0.17350557244174267" />
         <entry key="app/src/main/res/layout/activity_doctor_home.xml" value="0.32447916666666665" />
@@ -26,15 +36,25 @@
         <entry key="app/src/main/res/layout/activity_patient_activity_login.xml" value="0.18205128205128204" />
         <entry key="app/src/main/res/layout/activity_patient_home.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/activity_patient_login.xml" value="0.15982776089159068" />
+        <entry key="app/src/main/res/layout/booking_dialogue_layout.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/booking_patient_view_row.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/booking_view_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/clinics_view_row.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/content_patient_login.xml" value="0.15982776089159068" />
+        <entry key="app/src/main/res/layout/custom_dialogue_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialogue.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/doctor_schedule_view.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/doctors_view_row.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/doctos_list_view.xml" value="0.2772727272727273" />
         <entry key="app/src/main/res/layout/drawer_layout.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/drawer_layout_clinic.xml" value="0.2907608695652174" />
         <entry key="app/src/main/res/layout/drawer_layout_doctor.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/drawer_layout_patient.xml" value="0.3072916666666667" />
-        <entry key="app/src/main/res/layout/fragment_available_time_slot.xml" value="0.49676584734799484" />
+        <entry key="app/src/main/res/layout/filter_types.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_add_new_doctors.xml" value="0.254981884057971" />
+        <entry key="app/src/main/res/layout/fragment_available_time_slot.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_click_register_second.xml" value="0.20729166666666668" />
-        <entry key="app/src/main/res/layout/fragment_clinic_home.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/fragment_clinic_home.xml" value="0.39076923076923076" />
         <entry key="app/src/main/res/layout/fragment_clinic_login.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/layout/fragment_clinic_manage_bokkings.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_clinic_profile.xml" value="0.28940217391304346" />
@@ -42,18 +62,20 @@
         <entry key="app/src/main/res/layout/fragment_clinic_register_first.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/layout/fragment_clinic_register_second.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/layout/fragment_clinic_register_third.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_clinic_registration_last.xml" value="0.23854166666666668" />
-        <entry key="app/src/main/res/layout/fragment_doctor_dash_board.xml" value="0.3541666666666667" />
+        <entry key="app/src/main/res/layout/fragment_clinic_registration_last.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_doctor_dash_board.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_doctor_login.xml" value="0.3269927536231884" />
         <entry key="app/src/main/res/layout/fragment_doctor_profile.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/fragment_doctor_register.xml" value="0.17350557244174267" />
         <entry key="app/src/main/res/layout/fragment_doctor_register_first.xml" value="0.3385416666666667" />
         <entry key="app/src/main/res/layout/fragment_doctor_register_second.xml" value="0.3385416666666667" />
         <entry key="app/src/main/res/layout/fragment_entry_first.xml" value="0.3179347826086957" />
-        <entry key="app/src/main/res/layout/fragment_entry_second.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_entry_second.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_login_patient.xml" value="0.17350557244174267" />
-        <entry key="app/src/main/res/layout/fragment_manage_schedule.xml" value="0.2128623188405797" />
+        <entry key="app/src/main/res/layout/fragment_login_patient.xml" value="0.42386831275720166" />
+        <entry key="app/src/main/res/layout/fragment_manage_bookings.xml" value="0.16927083333333334" />
+        <entry key="app/src/main/res/layout/fragment_manage_patient_bookings.xml" value="0.2558876811594203" />
+        <entry key="app/src/main/res/layout/fragment_manage_schedule.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_new_request.xml" value="0.24139492753623187" />
         <entry key="app/src/main/res/layout/fragment_patient_dash_board.xml" value="0.28306159420289856" />
         <entry key="app/src/main/res/layout/fragment_patient_profile.xml" value="0.28306159420289856" />
@@ -64,17 +86,22 @@
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25677083333333334" />
         <entry key="app/src/main/res/layout/fragment_register_patient.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_register_patient_first.xml" value="0.17572463768115942" />
-        <entry key="app/src/main/res/layout/fragment_schedule_doctors.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_search_clinics.xml" value="0.2296195652173913" />
+        <entry key="app/src/main/res/layout/fragment_schedule_doctors.xml" value="0.2659279778393352" />
+        <entry key="app/src/main/res/layout/fragment_search_clinics.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_view_doctor_schedule.xml" value="0.20425724637681159" />
         <entry key="app/src/main/res/layout/fragment_view_doctors.xml" value="0.2554347826086957" />
         <entry key="app/src/main/res/layout/gender_spinner.xml" value="0.12436676798378926" />
         <entry key="app/src/main/res/layout/recycler_view_row.xml" value="0.375" />
         <entry key="app/src/main/res/layout/request_view_row.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/schedule_view_row.xml" value="0.8265895953757225" />
+        <entry key="app/src/main/res/layout/schedule_view_row.xml" value="0.5474006116207951" />
+        <entry key="app/src/main/res/layout/upcoming_view_row.xml" value="0.375" />
         <entry key="app/src/main/res/menu/clinic_home_menu.xml" value="0.23854166666666668" />
+        <entry key="app/src/main/res/menu/clinics_list.xml" value="0.2972222222222222" />
         <entry key="app/src/main/res/menu/doctor_home_menu.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.3125" />
         <entry key="app/src/main/res/menu/patient_home_menu.xml" value="0.12222222222222222" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.232" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>

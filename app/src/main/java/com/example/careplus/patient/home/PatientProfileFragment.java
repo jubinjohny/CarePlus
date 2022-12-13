@@ -36,13 +36,14 @@ public class PatientProfileFragment extends Fragment {
     FirebaseFirestore db;
     String userId, fname, lname, dob, contact, insurance;
     String[] options;
+    FirebaseUser user;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
       binding = FragmentPatientProfileBinding.inflate(inflater,container,false);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseFirestore.getInstance();
-        db.collection("Users").whereEqualTo("email", user.getEmail())
+        db.collection("Patients").whereEqualTo("email", user.getEmail())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -140,8 +141,7 @@ public class PatientProfileFragment extends Fragment {
                     updateData.put("email", binding.contactInfo.getText().toString());
                     updateData.put("dob", binding.dob.getText().toString());
                     updateData.put("insuranceProvider", binding.insurance.getText().toString());
-
-                    db.collection("Users").document(userId)
+                    db.collection("Patients").document(userId)
                             .update(updateData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
@@ -163,6 +163,74 @@ public class PatientProfileFragment extends Fragment {
                 }
             }
         });
+        binding.deleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                user = FirebaseAuth.getInstance().getCurrentUser();
+                db.collection("Patients").document(userId).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()) {
+                                        Toast.makeText(getContext(), "Patient Account Deleted", Toast.LENGTH_SHORT).show();
+                                        Intent i = new Intent(getActivity(), MainActivity.class);
+                                        startActivity(i);
+                                    }
+                                }
+                            });
+                        } else {
+                            Toast.makeText(getContext(), "Patient Account Deletion Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            };
+        });
+        this.startAnimations();
       return binding.getRoot();
+    }
+
+    public void startAnimations() {
+        binding.firstNameLayout.setAlpha(0f);
+        binding.firstNameLayout.setAlpha(0f);
+        binding.firstNameLayout.setTranslationY(50);
+        binding.firstNameLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.lastNameLayout.setAlpha(0f);
+        binding.lastNameLayout.setAlpha(0f);
+        binding.lastNameLayout.setTranslationY(50);
+        binding.lastNameLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.dobLayout.setAlpha(0f);
+        binding.dobLayout.setAlpha(0f);
+        binding.dobLayout.setTranslationY(50);
+        binding.dobLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.insuranceLayout.setAlpha(0f);
+        binding.insuranceLayout.setAlpha(0f);
+        binding.insuranceLayout.setTranslationY(50);
+        binding.insuranceLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.contactInfoLayout.setAlpha(0f);
+        binding.contactInfoLayout.setAlpha(0f);
+        binding.contactInfoLayout.setTranslationY(50);
+        binding.contactInfoLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.updateProfileLayout.setAlpha(0f);
+        binding.updateProfileLayout.setAlpha(0f);
+        binding.updateProfileLayout.setTranslationY(50);
+        binding.updateProfileLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.logoutLayout.setAlpha(0f);
+        binding.logoutLayout.setAlpha(0f);
+        binding.logoutLayout.setTranslationY(50);
+        binding.logoutLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.deleteAccountLayout.setAlpha(0f);
+        binding.deleteAccountLayout.setAlpha(0f);
+        binding.deleteAccountLayout.setTranslationY(50);
+        binding.deleteAccountLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
     }
 }

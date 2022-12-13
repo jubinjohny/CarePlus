@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,19 +84,19 @@ public class ClinicRegistrationFragmentLast extends Fragment {
                                    public void onSuccess(Void unused) {
                                        Log.d(TAG, DB.getClinicEmail() + DB.getClinicPassword());
                                        clinicAuth.createUserWithEmailAndPassword(DB.getClinicEmail(), DB.getClinicPassword())
-                                               .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                                   @Override
-                                                   public void onComplete(@NonNull Task<AuthResult> task) {
-                                                       if (task.isSuccessful()) {
-                                                           Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
-                                                       } else {
-                                                           Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
-                                                           return;
-                                                       }
+                                           .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                               @Override
+                                               public void onComplete(@NonNull Task<AuthResult> task) {
+                                                   if (task.isSuccessful()) {
+                                                       Toast.makeText(getActivity(), "Login Success", Toast.LENGTH_SHORT).show();
+                                                       Intent i = new Intent(getActivity(), ClinicHomeActivity.class);
+                                                       startActivity(i);
+                                                   } else {
+                                                       Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
+                                                       return;
                                                    }
-                                               });
-                                       Intent i = new Intent(getActivity(), ClinicHomeActivity.class);
-                                       startActivity(i);
+                                               }
+                                           });
                                    }
                                }).addOnFailureListener(new OnFailureListener() {
                                    @Override
@@ -108,6 +110,38 @@ public class ClinicRegistrationFragmentLast extends Fragment {
                }
        }
     });
+        binding.showPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.GONE);
+                binding.hidePassword.setVisibility(View.VISIBLE);
+                binding.clinicPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.VISIBLE);
+                binding.hidePassword.setVisibility(View.GONE);
+                binding.clinicPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
+        binding.showPasswordConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPasswordConfirm.setVisibility(View.GONE);
+                binding.hidePasswordConfirm.setVisibility(View.VISIBLE);
+                binding.clinicPasswordConfirm.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePasswordConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPasswordConfirm.setVisibility(View.VISIBLE);
+                binding.hidePasswordConfirm.setVisibility(View.GONE);
+                binding.clinicPasswordConfirm.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
         return binding.getRoot();
     }
 }

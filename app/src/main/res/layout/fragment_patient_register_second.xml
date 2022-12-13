@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".patient.auth.PatientRegisterFragmentSecond"
-    android:background="@drawable/entry_background">
+    android:background="@drawable/clinic_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_width="130dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="120dp" />
         </FrameLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -52,21 +52,21 @@
             android:layout_marginRight="62dp">
 
             <EditText
+                android:id="@+id/dob_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dob_user"
                 android:background="@android:color/transparent"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Date Of Birth"
                 android:maxLines="1"
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
             <ImageView
                 android:src="@drawable/ic_calendar"
@@ -94,6 +94,7 @@
                 android:hint="Phone"
                 android:inputType="phone"
                 android:maxLines="1"
+                android:singleLine="true"
                 android:paddingLeft="47dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"

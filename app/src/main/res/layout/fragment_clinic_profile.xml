@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dashboard_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/dashboardbgm"
     tools:context=".patient.home.PatientProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,18 +21,21 @@
             android:layout_width="match_parent"
             android:layout_height="300dp">
 
-            <ImageView
-                android:src="@drawable/clinic2"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/doctorProfileAnimation"
+                android:layout_width="260dp"
+                android:layout_height="217dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/clinic_profile_image" />
         </FrameLayout>
         <RelativeLayout
+            android:id="@+id/clinic_name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corners"
             android:padding="10dp"
             android:layout_marginRight="62dp">
@@ -39,18 +48,19 @@
                 android:layout_marginLeft="10dp" />
 
             <EditText
-                android:id="@+id/fclinic_name"
+                android:id="@+id/clinic_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Clinic Name"
                 android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingLeft="47dp"
+                android:text="Clinic Name"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/clinic_location_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -71,14 +81,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Location"
                 android:enabled="false"
+                android:fontFamily="@font/poppins_regular"
                 android:paddingLeft="47dp"
+                android:text="Location"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/insurance_providers_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -100,13 +111,17 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:text="View Insurance Providers"
-                android:enabled="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:paddingLeft="47dp"
+                android:hint="View Insurance Providers"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/contact_info_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -135,6 +150,7 @@
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/update_profile_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -151,17 +167,19 @@
                 android:layout_marginLeft="10dp" />
 
             <TextView
-                android:id="@+id/update"
+                android:id="@+id/update_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:text="Update Profile"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/logout_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -183,13 +201,14 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
+                android:text="Logout"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:text="Logout"
                 android:textSize="15sp" />
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/delete_account_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -212,11 +231,12 @@
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
                 android:textAlignment="center"
-                android:textColor="@color/red"
+                android:textColor="@color/white"
                 android:text="Delete Account"
                 android:textSize="15sp" />
 
         </RelativeLayout>
     </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

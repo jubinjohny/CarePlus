@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,6 +107,38 @@ public class PatientRegisterFragmentFourth extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "Data not updated", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        binding.showPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.GONE);
+                binding.hidePassword.setVisibility(View.VISIBLE);
+                binding.passwordPatient.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.VISIBLE);
+                binding.hidePassword.setVisibility(View.GONE);
+                binding.passwordPatient.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
+        binding.showPasswordConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPasswordConfirm.setVisibility(View.GONE);
+                binding.hidePasswordConfirm.setVisibility(View.VISIBLE);
+                binding.passwordPatientConfirm.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePasswordConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPasswordConfirm.setVisibility(View.VISIBLE);
+                binding.hidePasswordConfirm.setVisibility(View.GONE);
+                binding.passwordPatientConfirm.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
         return binding.getRoot();

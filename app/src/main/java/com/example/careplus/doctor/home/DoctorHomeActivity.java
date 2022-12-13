@@ -74,4 +74,17 @@ public class DoctorHomeActivity extends AppCompatActivity  implements Navigation
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            this.finishAffinity();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+
+    }
 }

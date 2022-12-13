@@ -7,12 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.careplus.MainActivity;
 import com.example.careplus.R;
 import com.example.careplus.clinic.auth.ClinicActivityLogin;
@@ -25,18 +28,10 @@ public class EntryFragmentSecond extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_entry_second, container, false);
-
-        ImageView patientImage = (ImageView) root.findViewById(R.id.patient_login_image);
-        ImageView clinicImage = (ImageView) root.findViewById(R.id.clinic_login_image);
-        ImageView doctorImage = (ImageView) root.findViewById(R.id.doctor_login_image);
-
+        root.getBackground().setAlpha(150);
         LinearLayout patientLayout = (LinearLayout) root.findViewById(R.id.patient_layout);
         LinearLayout clinicLayout = (LinearLayout) root.findViewById(R.id.clinic_layout);
         LinearLayout doctorLayout = (LinearLayout) root.findViewById(R.id.doctor_layout);
-
-        patientImage.setImageResource(R.drawable.patient2);
-        clinicImage.setImageResource(R.drawable.clinic2);
-        doctorImage.setImageResource(R.drawable.nurse);
 
         patientLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +54,7 @@ public class EntryFragmentSecond extends Fragment{
                 startActivity(i);
             }
         });
+
         return root;
     };
 }

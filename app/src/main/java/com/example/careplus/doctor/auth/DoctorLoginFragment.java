@@ -1,15 +1,25 @@
 package com.example.careplus.doctor.auth;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +43,7 @@ public class DoctorLoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentDoctorLoginBinding.inflate(inflater, container, false);
+        binding.getRoot().getBackground().setAlpha(90);
         doctorAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         binding.doctorLogin.setOnClickListener(new View.OnClickListener() {
@@ -64,19 +75,19 @@ public class DoctorLoginFragment extends Fragment {
                                                         Intent intent = new Intent(getActivity(), DoctorHomeActivity.class);
                                                         startActivity(intent);
                                                     } else {
-                                                        Toast.makeText(getActivity(), "No user found", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getActivity(), "Incorrect Credentials", Toast.LENGTH_SHORT).show();
                                                     }
                                                 }
                                             });
                                     } else {
                                         binding.doctorPassword.setText("");
                                         binding.doctorEmail.setText("");
-                                        Toast.makeText(getActivity(), "No user found", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), "Incorrect Credentials", Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
                                     binding.doctorPassword.setText("");
                                     binding.doctorEmail.setText("");
-                                    Toast.makeText(getActivity(), "User Not Found", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "Incorrect Credentials", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                             }
@@ -92,6 +103,86 @@ public class DoctorLoginFragment extends Fragment {
                         .commit();
             }
         });
+        binding.forgotCredentials.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setContentView(R.layout.dialogue);
+                EditText getEmail = (EditText) dialog.findViewById(R.id.email);
+                Button okBtn = (Button) dialog.findViewById(R.id.btn_ok);
+                Button cancelBtn = (Button) dialog.findViewById(R.id.btn_cancel);
+                okBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        FirebaseAuth.getInstance().sendPasswordResetEmail(getEmail.getText().toString())
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(getContext(), "Email Sent", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getContext(),"Incorrect Credentials" , Toast.LENGTH_SHORT).show();
+                                        }
+                                        dialog.dismiss();
+                                    }
+                                });
+                    }
+                });
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.setCancelable(true);
+                dialog.show();
+            }
+        });binding.showPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.GONE);
+                binding.hidePassword.setVisibility(View.VISIBLE);
+                binding.doctorPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+        });
+        binding.hidePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.showPassword.setVisibility(View.VISIBLE);
+                binding.hidePassword.setVisibility(View.GONE);
+                binding.doctorPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        });
+        this.startAnimations();
         return binding.getRoot();
+    }
+
+    public void startAnimations() {
+        binding.usernameLayout.setAlpha(0f);
+        binding.usernameLayout.setAlpha(0f);
+        binding.usernameLayout.setTranslationY(50);
+        binding.usernameLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.passwordLayout.setAlpha(0f);
+        binding.passwordLayout.setAlpha(0f);
+        binding.passwordLayout.setTranslationY(50);
+        binding.passwordLayout.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.doctorLogin.setAlpha(0f);
+        binding.doctorLogin.setAlpha(0f);
+        binding.doctorLogin.setTranslationY(50);
+        binding.doctorLogin.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.forgotCredentials.setAlpha(0f);
+        binding.forgotCredentials.setAlpha(0f);
+        binding.forgotCredentials.setTranslationY(50);
+        binding.forgotCredentials.animate().alpha(1f).translationYBy(-50).setDuration(1000);
+
+        binding.doctorRegister.setAlpha(0f);
+        binding.doctorRegister.setAlpha(0f);
+        binding.doctorRegister.setTranslationY(50);
+        binding.doctorRegister.animate().alpha(1f).translationYBy(-50).setDuration(1000);
     }
 }
